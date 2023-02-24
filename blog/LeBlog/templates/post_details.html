@@ -1,0 +1,8 @@
+<h1>{{post.title}}</h1>
+<small>Posté par : {{post.author.first_name}}
+{{post.author.last_name}}</small><br/>
+<hr>
+<br/>
+{{post.body}}
+<br/><br/>
+<a href="{% url 'home' %}" >Home</a>
