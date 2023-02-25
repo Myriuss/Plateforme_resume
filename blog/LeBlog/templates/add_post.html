@@ -3,12 +3,14 @@
 {% block content %}
 
 <h1>Ajouter un poste</h1>
-<br/>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-info">Ajouter</button>
-</form>
+<br/><br/>
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-info">Ajouter</button>
+    </form>
+</div>
 
 
 {% endblock %}
