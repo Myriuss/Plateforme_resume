@@ -2,13 +2,13 @@
 {% block title %}Modifier votre poste{% endblock %}
 {% block content %}
 
-<h1>Ajouter un poste</h1>
+<h1>Modifier le poste</h1>
 <br/><br/>
 <div class="form-group">
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-info">Ajouter</button>
+        <button class="btn btn-info">Modifier</button>
     </form>
 </div>
 
