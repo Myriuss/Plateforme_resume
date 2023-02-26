@@ -2,6 +2,7 @@
 {% block title %}Ajouter un nouveau résumé{% endblock %}
 {% block content %}
 
+{% if user.is_authenticated %}
 <h1>Ajouter un poste</h1>
 <br/><br/>
 <div class="form-group">
@@ -12,5 +13,10 @@
     </form>
 </div>
 
+{% else %}
+
+non non non degage d'ici faut se connecter d'abord
+
+{% endif %}
 
 {% endblock %}

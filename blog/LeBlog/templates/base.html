@@ -23,12 +23,25 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
+
+      {% if user.is_authenticated %}
+         <li class="nav-item">
         <a class="nav-link" href="{% url 'add_post' %}">Ajouter un résumé</a>
-      </li>
+         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Se déconnecter</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">S'inscrire</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Se connecter</a>
+        </li>
+      {% endif %}
+
 
 
     </ul>
