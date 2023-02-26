@@ -2,15 +2,13 @@
 
 {% block content %}
 
+{% if categorie_posts %}
 
-<h1>Résumés</h1>
+<h1>{{ cats }}</h1>
 
 <ul>
-{%for post in object_list%}
-    <li> <a href="{% url 'post-details' post.pk %}">{{post.title}}</a> -
-        <a href="{% url 'categorie' post.categorie %}">{{post.categorie}}</a>
-        - {{post.author}}
-        <small>{{ post.post_date }}</small>
+{% for post in categorie_posts %}
+    <li> <a href="{% url 'post-details' post.pk %}">{{post.title}}</a> - {{post.categorie}} - {{post.author}} <small>{{ post.post_date }}</small>
 
         {% if user.is_authenticated %}
         <small><a href="{% url 'update_post' post.pk %}">(Modifier)</a></small>
@@ -22,4 +20,9 @@
 {%endfor%}
 </ul>
 
+{% else %}
+<h2>Cette catégorie n'existe pas.</h2>
+{%endif%}
+
 {% endblock %}
+

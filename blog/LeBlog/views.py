@@ -16,6 +16,9 @@ class HomeView(ListView):
     ordering = ['-post_date']
     #ordering = ['-id']
 
+def CategoryView(request, cats):
+    categorie_posts = Post.objects.filter(categorie=cats)
+    return render(request, 'categories.html', {'cats': cats, 'categorie_posts': categorie_posts})
 
 class PostDetailView(DetailView):
     model = Post
