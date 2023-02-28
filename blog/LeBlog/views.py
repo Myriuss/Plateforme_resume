@@ -17,8 +17,8 @@ class HomeView(ListView):
     #ordering = ['-id']
 
 def CategoryView(request, cats):
-    categorie_posts = Post.objects.filter(categorie=cats)
-    return render(request, 'categories.html', {'cats': cats, 'categorie_posts': categorie_posts})
+    categorie_posts = Post.objects.filter(categorie=cats.replace('-', ' '))
+    return render(request, 'categories.html', {'cats': cats.replace('-', ' '), 'categorie_posts': categorie_posts})
 
 class PostDetailView(DetailView):
     model = Post

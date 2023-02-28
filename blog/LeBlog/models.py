@@ -27,3 +27,7 @@ class Post(models.Model):
         def get_absolute_url(self):
                 #return reverse('post-details', args=(str(self.id)))
                 return reverse('home')
+
+def save(self, *args, **kwargs):
+        self.name = self.name.lower()
+        return super(Category, self).save(*args, **kwargs)

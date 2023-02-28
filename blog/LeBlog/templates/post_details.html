@@ -4,15 +4,20 @@
 
 {% block content %}
 
+
 <h1>{{post.title}}</h1>
 <small>Posté par : {{post.author}} -
-    {{ post.post_date }}   <a href="{% url 'update_post' post.pk %}">(Modifier)</a></small>
+    {{ post.post_date }}
+    {% if user.is_authenticated %}
+    <a href="{% url 'update_post' post.pk %}">(Modifier)</a></small>
 <small><a href="{% url 'delete_post' post.pk %}">(Supprimer)</a></small>
+    {% endif %}
 <hr>
 <br/>
 {{post.body|safe}}
 <br/><br/>
 
 <a href="{% url 'home' %}" class="btn btn-info">Home</a>
+
 
 {% endblock %}
