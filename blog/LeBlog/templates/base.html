@@ -24,6 +24,27 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 
+      {%if cat_menu%}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catégories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          {%for item in cat_menu%}
+          <a class="dropdown-item" href="{% url 'categorie' item|slugify %}">{{ item }}</a>
+          {%endfor%}
+
+        </div>
+      </li>
+      {%else%}
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'categories_list' %}">Catégories</a>
+      </li>
+
+
+      {%endif%}
+
       {% if user.is_authenticated %}
          <li class="nav-item">
           <a class="nav-link" href="{% url 'add_post' %}">Ajouter un résumé</a>
@@ -45,6 +66,7 @@
           <a class="nav-link" href="{% url 'login' %}">Se connecter</a>
         </li>
       {% endif %}
+
 
 
 

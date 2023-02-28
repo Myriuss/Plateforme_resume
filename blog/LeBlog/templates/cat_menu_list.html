@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+{% block title %}Catégorie résumée{% endblock %}
+
+{% block content %}
+
+<h1>Catégorie résumée</h1>
+
+          {%for item in cat_menu_list %}
+          <a class="dropdown-item" href="{% url 'categorie' item|slugify %}">{{ item }}</a>
+          {%endfor%}
+
+
+
+{% endblock %}
