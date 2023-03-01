@@ -13,11 +13,13 @@
         <small>{{ post.post_date }}</small>
 
         {% if user.is_authenticated %}
+        {%if user.id == post.author.id %}
         <small><a href="{% url 'update_post' post.pk %}">(Modifier)</a></small>
 
         <small><a href="{% url 'delete_post' post.pk %}">(Supprimer)</a></small>
         <br/>
         {{post.body|slice:":200" }} </li>
+    {%endif%}
         {%endif%}
 {%endfor%}
 </ul>

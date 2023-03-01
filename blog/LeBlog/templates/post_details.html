@@ -9,8 +9,10 @@
 <small>Posté par : {{post.author}} -
     {{ post.post_date }}
     {% if user.is_authenticated %}
+        {%if user.id == post.author.id %}
     <a href="{% url 'update_post' post.pk %}">(Modifier)</a></small>
 <small><a href="{% url 'delete_post' post.pk %}">(Supprimer)</a></small>
+        {% endif %}
     {% endif %}
 <hr>
 <br/>

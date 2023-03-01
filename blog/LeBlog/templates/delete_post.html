@@ -3,6 +3,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+{% if user.is_authenticated %}
 <h1>Supprimer le poste</h1>
 <br/><br/>
 <h3>Supprimer : {{ post.title }}</h3>
@@ -14,8 +15,11 @@
         <button class="btn btn-danger">Supprimer</button>
     </form>
 </div>
-{% else %}
 
+{% else %}
+non non non degage d'ici faut se connecter d'abord
+{% endif %}
+{% else %}
 non non non degage d'ici faut se connecter d'abord
 
 {% endif %}

@@ -5,6 +5,7 @@ from .forms import PostForm, EditPostForm
 from django.urls import reverse_lazy
 
 
+
 # listView allows to list a query set to the datebase
 # same thing but details of one record
 # def home(request):

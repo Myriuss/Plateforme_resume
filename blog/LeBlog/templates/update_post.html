@@ -4,7 +4,8 @@
 
 
 {% if user.is_authenticated %}
-<h1>Modifier le poste</h1>
+{%if user.id == post.author.id %}
+<h1>Modifier le résumé</h1>
 <br/><br/>
 <div class="form-group">
     <form method="POST">
@@ -13,6 +14,10 @@
         <button class="btn btn-info">Modifier</button>
     </form>
 </div>
+{% else %}
+non non non degage d'ici faut se connecter d'abord
+
+{% endif %}
 {% else %}
 
 non non non degage d'ici faut se connecter d'abord
