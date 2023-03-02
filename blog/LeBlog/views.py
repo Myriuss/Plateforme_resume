@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Categorie
 from .forms import PostForm, EditPostForm
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect
 
 
 
@@ -10,6 +11,11 @@ from django.urls import reverse_lazy
 # same thing but details of one record
 # def home(request):
 # return render(request, 'home.html', {})
+
+def LikeView (request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('post-details', args=[str(pk)]))
 
 class HomeView(ListView):
     model = Post
@@ -37,7 +43,10 @@ class PostDetailView(DetailView):
     def get_context_data(self, *args, **kwargs):
         cat_menu = Categorie.objects.all()
         context = super(PostDetailView, self).get_context_data(*args, **kwargs)
+        stuff = get_object_or_404(Post, id=self.kwargs['pk'])
+        total_likes = stuff.total_likes()
         context["cat_menu"] = cat_menu
+        context["total_likes"] = total_likes
         return context
 
 
