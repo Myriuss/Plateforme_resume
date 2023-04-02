@@ -22,6 +22,7 @@ class Post(models.Model):
         #body = models.TextField()
         post_date = models.DateField(auto_now_add=True)
         categorie = models.CharField(max_length=255)
+        snippet = models.CharField(max_length=255, default='coding')
         likes = models.ManyToManyField(User, related_name='resumee')
 
         def total_likes(self):
@@ -36,4 +37,4 @@ class Post(models.Model):
 
 def save(self, *args, **kwargs):
         self.name = self.name.lower()
-        return super(Category, self).save(*args, **kwargs)
+        return super(Categorie, self).save(*args, **kwargs)
