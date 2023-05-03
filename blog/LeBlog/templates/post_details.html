@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{post.title}}{% endblock %}
 
 {% block content %}
@@ -53,7 +54,11 @@
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-2">
+        {% if post.author.profile.profile_pic %}
       <img src=" {{post.author.profile.profile_pic.url}}" class="img-fluid rounded-start rounded-circle"   >
+        {% else %}
+        <img src=" {% static 'leBlog/images/Windows_10_Default_Profile_Picture.svg.png' %}" class="img-fluid rounded-start rounded-circle"   >
+        {% endif %}
     </div>
     <div class="col-md-10">
       <div class="card-body">
@@ -61,11 +66,11 @@
           <p class="small text-muted">
 
               <a href="{% url 'show_profile_page' post.author.profile.id %}">
-                  Profil |
+                  Profil
               </a>
 
               {% if post.author.profile.microsoft_teams_url %}
-              <a href="{{post.author.profile.microsoft_teams_url}}">Microsoft Teams |</a>
+              <a href="{{post.author.profile.microsoft_teams_url}}">| Microsoft Teams |</a>
               {% endif %}
               {% if post.author.profile.github_url %}
               <a href="{{post.author.profile.github_url}}">Github |</a>
