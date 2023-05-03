@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views import generic
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Categorie, Profile
-from .forms import PostForm, EditPostForm
+from .forms import PostForm, EditPostForm, EditProfilePageForm
 from django.urls import reverse_lazy, reverse
 
 
@@ -11,7 +11,8 @@ from django.urls import reverse_lazy, reverse
 class EditProfilPageView(generic.UpdateView):
     model = Profile
     template_name = 'edit_profile_page.html'
-    fields = ['bio', 'profile_pic', 'microsoft_teams_url', 'github_url', 'linkedin_url']
+    form_class = EditProfilePageForm
+    #fields = ['bio', 'profile_pic', 'microsoft_teams_url', 'github_url', 'linkedin_url']
     success_url = reverse_lazy('home')
 
 

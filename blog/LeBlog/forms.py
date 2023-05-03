@@ -1,5 +1,7 @@
 from django import forms
-from .models import Post, Categorie
+from django.contrib.auth.models import User
+from .models import Post, Categorie, Profile
+from django.contrib.auth.forms import UserChangeForm
 
 choices = [('Analyse financière', 'Analyse financière'),
            ('Analyse des données', 'Analyse des données'),
@@ -21,6 +23,17 @@ choice_list = []
 
 for item in choices:
     choice_list.append(item)
+
+class EditProfilePageForm(UserChangeForm):
+    bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
+    microsoft_teams_url = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    github_url = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    linkedin_url = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = Profile
+        fields = ('bio', 'microsoft_teams_url', 'github_url', 'linkedin_url')
+
 
 class PostForm(forms.ModelForm):
     class Meta:
