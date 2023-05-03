@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Paramètre{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if user.id == profile.user.id %}
+<h1>Paramètre</h1>
+<br/><br/>
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <button class="btn btn-info">Modifier</button>
+    </form>
+</div>
+
+
+{% else %}
+
+non non non faut se connecter d'abord
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}
