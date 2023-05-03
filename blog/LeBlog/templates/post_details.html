@@ -59,14 +59,19 @@
       <div class="card-body">
         <h5 class="card-title">{{post.author}}</h5>
           <p class="small text-muted">
+
+              <a href="{% url 'show_profile_page' post.author.profile.id %}">
+                  Profil |
+              </a>
+
               {% if post.author.profile.microsoft_teams_url %}
-              <a href="{{post.author.profile.microsoft_teams_url}">Microsoft Teams |</a>
+              <a href="{{post.author.profile.microsoft_teams_url}}">Microsoft Teams |</a>
               {% endif %}
               {% if post.author.profile.github_url %}
-              <a href="{{post.author.profile.github_url}">Github |</a>
+              <a href="{{post.author.profile.github_url}}">Github |</a>
               {% endif %}
               {% if post.author.profile.linkedin_url %}
-              <a href="{{post.author.profile.linkedin_url}">LinkedIn </a>
+              <a href="{{post.author.profile.linkedin_url}}">LinkedIn </a>
               {% endif %}
           </p>
         <p class="card-text">{{post.author.profile.bio}}</p>
