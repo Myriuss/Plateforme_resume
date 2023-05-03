@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<h1>Profil de l'utilisateur</h1>
+<br/><br/>
+
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-2">
+      <img src=" {{page_user.profile_pic.url}}" class="img-fluid rounded-start"  >
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <h5 class="card-title">{{post.author}}</h5>
+          <p class="small text-muted">
+
+
+              {% if page_user.microsoft_teams_url %}
+              <a href="{{page_user.microsoft_teams_url}}">Microsoft Teams |</a>
+              {% endif %}
+              {% if page_user.github_url %}
+              <a href="{{page_user.github_url}}">Github |</a>
+              {% endif %}
+              {% if page_user.linkedin_url %}
+              <a href="{{page_user.linkedin_url}}">LinkedIn </a>
+              {% endif %}
+          </p>
+        <p class="card-text">{{page_user.bio}}</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
