@@ -3,9 +3,19 @@ from django.http import HttpResponseRedirect
 from django.views import generic
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Categorie, Profile
-from .forms import PostForm, EditPostForm, EditProfilePageForm
+from .forms import PostForm, EditPostForm, EditProfilePageForm, CreateProfilePageForm
 from django.urls import reverse_lazy, reverse
 
+
+class CreateProfilePageview(CreateView):
+    model = Profile
+    form_class = CreateProfilePageForm
+    template_name = "create_user_profile.html"
+    #fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid((form))
 
 
 class EditProfilPageView(generic.UpdateView):
