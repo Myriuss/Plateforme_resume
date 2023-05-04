@@ -1,5 +1,4 @@
 # django_blog
-Here's a simple README file template for your Django web app:
 
 # Plateforme de résumé d'une école
 
