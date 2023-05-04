@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
 
@@ -10,7 +10,11 @@
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-2">
-      <img src=" {{page_user.profile_pic.url}}" class="img-fluid rounded-start"  >
+      {% if post.author.profile.profile_pic %}
+      <img src=" {{post.author.profile.profile_pic.url}}" class="img-fluid rounded-start rounded-circle"   >
+        {% else %}
+        <img src=" {% static 'leBlog/images/Windows_10_Default_Profile_Picture.svg.png' %}" class="img-fluid rounded-start rounded-circle"   >
+        {% endif %}
     </div>
     <div class="col-md-10">
       <div class="card-body">

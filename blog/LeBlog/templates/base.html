@@ -60,9 +60,16 @@
           Profil
           </a>
           <ul class="dropdown-menu">
+
             <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Modifier le profil</a></li>
+
+            {% if user.profile.id %}
             <li><a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Modifier la page d'utilisateur</a></li>
-            <li><a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Visiter le profil</a></li>
+            <li><a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Consulter votre profil</a></li>
+            {% else %}
+             <li><a class="dropdown-item" href="{% url 'create_profile_page' %}">Créer votre page de profil</a></li>
+            {% endif %}
+
           </ul>
         </li>
 

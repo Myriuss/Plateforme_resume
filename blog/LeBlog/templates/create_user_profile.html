@@ -1,22 +1,20 @@
 {% extends 'base.html' %}
-{% block title %}Ajouter un nouveau résumé{% endblock %}
+{% block title %}Créer une page de profil{% endblock %}
 {% block content %}
 
 {% if user.is_authenticated %}
-<h1>Ajouter un poste</h1>
+<h1>Créer une page de profil</h1>
 <br/><br/>
 <div class="form-group">
     <form method="POST" enctype="multipart/form-datail">
         {% csrf_token %}
-        {{ form.media }}
         {{ form.as_p }}
-        <button class="btn btn-info">Ajouter</button>
+        <button class="btn btn-info">Créer</button>
     </form>
 </div>
 
 <script>
-    var name = "{{ user.id }}";
-    document.getElementById("elder").value = name;
+
 
 </script>
 

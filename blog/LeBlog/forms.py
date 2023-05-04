@@ -24,7 +24,8 @@ choice_list = []
 for item in choices:
     choice_list.append(item)
 
-class EditProfilePageForm(UserChangeForm):
+
+class CreateProfilePageForm(forms.ModelForm):
     bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
     microsoft_teams_url = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     github_url = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -33,6 +34,23 @@ class EditProfilePageForm(UserChangeForm):
     class Meta:
         model = Profile
         fields = ('bio', 'microsoft_teams_url', 'github_url', 'linkedin_url')
+
+class EditProfilePageForm(UserChangeForm):
+    #bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
+    #microsoft_teams_url = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    #github_url = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    #linkedin_url = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = Profile
+        fields = ('bio', 'microsoft_teams_url', 'github_url', 'linkedin_url')
+
+        widgets = {
+            'bio': forms.Textarea(attrs={'class': 'form-control'}),
+            'microsoft_teams_url': forms.TextInput(attrs={'class': 'form-control'}),
+            'github_url': forms.TextInput(attrs={'class': 'form-control'}),
+            'linkedin_url': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
 
 class PostForm(forms.ModelForm):
