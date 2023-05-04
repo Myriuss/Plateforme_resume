@@ -2,15 +2,24 @@
 {% block title %}Se connecter{% endblock %}
 {% block content %}
 
-<h1>Se connecter</h1>
-<br/><br/>
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-info">Se connecter</button>
-    </form>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+      <div class="form-group">
+        <h1>Se connecter</h1>
+        <br/><br/>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button class="btn btn-info">Se connecter</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 p-0 mt-n4 float-right">
+      <img src="https://static.cotemaison.fr/medias_11981/w_1000,c_limit,g_north/v1645435268/bibliotheque-bleue-dans-couloir_6134418.jpeg" alt="Bibliothèque bleue dans couloir" class="img-fluid h-100 w-100">
+    </div>
+  </div>
 </div>
 
-
 {% endblock %}
+
