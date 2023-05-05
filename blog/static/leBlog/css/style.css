@@ -1,0 +1,21 @@
+.post_container {
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.294);
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: rgb(31, 38, 166); 
+}
+a:hover {
+    text-decoration: none;
+    color: rgb(156, 165, 170);
+    cursor: pointer;
+}
+.main_container{
+    background-color: #eff5fa;
+    border-radius: 2rem;
+    padding: 2rem;
+}

@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
-
-<h1>Résumés</h1>
-
-<ul>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'leBlog/css/style.css' %}">
+    <title></title>
+  </head>
+  <body>
+  <div class="main_container">
+  <h1>Résumés</h1>
+    <ul>
 {%for post in object_list%}
+  <div class="post_container">
+
     <li> <a href="{% url 'post-details' post.pk %}">{{post.title}}</a> -
         <a href="{% url 'categorie' post.categorie|slugify %}">{{post.categorie}}</a>
         - {{post.author}}
@@ -21,9 +28,14 @@
         </li>
     {%endif%}
         {%endif%}
+
+  </div>
 {%endfor%}
 </ul>
+</div>
+  </body>
 
+</html>
 
 
 {% endblock %}
