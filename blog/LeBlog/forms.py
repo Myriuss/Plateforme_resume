@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Post, Categorie, Profile
+from .models import Post, Categorie, Profile, Comment
 from django.contrib.auth.forms import UserChangeForm
 
 choices = [('Analyse financière', 'Analyse financière'),
@@ -76,5 +76,15 @@ class EditPostForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titre'}),
             #'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
             #'author': forms.Select(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'body')
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titre'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
         }

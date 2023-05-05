@@ -50,25 +50,7 @@
 </form>
 <br/>
 <hr>
-<h2>Commentaires</h2>
-<br/><br/>
 
-{% if not post.comments.all %}
-    Aucun commentaire <a href="#">Ajouter un commentaire</a>
-{% else %}
-    {% for comment in post.comments.all %}
-    <strong>
-        {{ comment.name }}
-        {{ comment.date_added }}
-    </strong>
-    <br/>
-    {{ comment.body }}
-    {% endfor %}
-{% endif %}
-<br/><br/>
-<hr>
-
-<br/><br/>
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-2">
@@ -103,6 +85,28 @@
     </div>
   </div>
 </div>
+<br/><br/>
 
+<hr>
+<h1>Commentaires</h1>
+<br/>
+
+{% if not post.comments.all %}
+    Aucun commentaire
+{% else %}
+
+    {% for comment in post.comments.all %}
+    <strong>
+        {{ comment.name }}
+        {{ comment.date_added }}
+    </strong>
+    <br/>
+    {{ comment.body }}
+<br/><br/>
+    {% endfor %}
+{% endif %}
+<br/><br/>
+<a href="{% url 'add_comment' post.pk %}" class="btn btn-info">Ajouter un commentaire</a>
+<br/><br/>
 
 {% endblock %}
