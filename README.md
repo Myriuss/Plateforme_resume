@@ -1,4 +1,4 @@
-# django_blog
+# Plateforme de résumé
 
 # Plateforme de résumé d'une école
 
