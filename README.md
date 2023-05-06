@@ -1,5 +1,3 @@
-# Plateforme de résumé
-
 # Plateforme de résumé d'une école
 
 Cette application est une plateforme permettant aux étudiants de résumer leurs cours en ligne. Les utilisateurs peuvent créer un compte, soumettre des résumés de cours et les partager avec d'autres étudiants.
