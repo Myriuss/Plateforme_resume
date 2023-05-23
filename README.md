@@ -16,7 +16,7 @@ Cette application est une plateforme permettant aux étudiants de publier leurs 
 2. Ouvrez un terminal à la racine du dossier cloné
 3. Créez un environnement virtuel `python -m venv venv`
 4. Activez l'environnement virtuel `source venv/bin/activate` (Linux/MacOS) ou `.\venv\Scripts\activate` (Windows)
-5. Installez les dépendances `pip install -r requirements.txt`
+5. Installez les dépendances 
 6. Migrer la base de données `python manage.py migrate`
 
 ## Utilisation
